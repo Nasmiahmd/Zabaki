@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Zabaki</string>
+    <string name="zabaki_logo_button">Zabaki Logo Button</string>
+    <string name="live_location">Live Location</string>
+    <string name="menu">Menu</string>
+    <string name="click_the_button_for_emergency">Click the Button for Emergency</string>
+    <string name="todo">TODO</string>
+    <string name="Back">Back to the home Screen</string>
+</resources>
