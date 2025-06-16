@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@drawable/bg_img1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenuActivity">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/selfDefenceCardView"
+        android:layout_width="145dp"
+        android:layout_height="135dp"
+        android:backgroundTint="#0D3B66"
+        app:cardCornerRadius="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.74">
+
+        <LinearLayout
+            android:layout_width="145dp"
+            android:layout_height="135dp"
+            android:padding="10dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                app:srcCompat="@drawable/codesandbox" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="0dp"
+                android:fontFamily="@font/anton"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:typeface="normal"
+                tools:text="Self-Defence" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/editSosMessageCardView"
+        android:layout_width="145dp"
+        android:layout_height="135dp"
+        android:backgroundTint="#0D3B66"
+        app:cardCornerRadius="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.86"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="145dp"
+            android:layout_height="135dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                app:srcCompat="@drawable/edit" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="0dp"
+                android:fontFamily="@font/anton"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:typeface="normal"
+                tools:text="SOS Message" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/manageContactsCardView"
+        android:layout_width="145dp"
+        android:layout_height="135dp"
+        android:backgroundTint="#0D3B66"
+        app:cardCornerRadius="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="145dp"
+            android:layout_height="135dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                app:srcCompat="@drawable/users" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="0dp"
+                android:fontFamily="@font/anton"
+                android:textColor="#FFFFFF"
+                android:textSize="19sp"
+                android:typeface="normal"
+                tools:text="Manage Contacts" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/addContactCardView"
+        android:layout_width="145dp"
+        android:layout_height="135dp"
+        android:backgroundTint="#0D3B66"
+        app:cardCornerRadius="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.86"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.26">
+
+        <LinearLayout
+            android:layout_width="145dp"
+            android:layout_height="135dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                app:srcCompat="@drawable/plus_circle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="0dp"
+                android:fontFamily="@font/anton"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:typeface="normal"
+                tools:text="Add Contact" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/instructionsCardView"
+        android:layout_width="145dp"
+        android:layout_height="135dp"
+        android:backgroundTint="#0D3B66"
+        app:cardCornerRadius="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.26">
+
+        <LinearLayout
+            android:layout_width="145dp"
+            android:layout_height="135dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                app:srcCompat="@drawable/exclamation" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="0dp"
+                android:fontFamily="@font/anton"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:typeface="normal"
+                tools:text="Instructions" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.041"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.018"
+        app:srcCompat="@drawable/arrow_small_left" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

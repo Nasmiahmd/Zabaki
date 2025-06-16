@@ -1,8 +1,5 @@
 package com.s22010020.Zabaki;
 
-import static com.s22010020.Zabaki.R.id.btnBack;
-
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -11,13 +8,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import android.view.Gravity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class HomeScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         instructions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Instruction Button Clicked", Toast.LENGTH_SHORT).show();
+                Toast.makeText(HomeScreen.this, "Instruction Button Clicked", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -44,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         logoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Logo Button Clicked", Toast.LENGTH_SHORT).show();
+                Toast.makeText(HomeScreen.this, "Logo Button Clicked", Toast.LENGTH_SHORT).show();
             }
         });
 
