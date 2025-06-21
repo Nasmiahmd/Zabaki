@@ -2,6 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-feature android:name="android.hardware.sensor.ambient_temperature"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,6 +19,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Zabaki"
         tools:targetApi="31">
+        <activity
+            android:name=".SelfDefenceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditSOSMassageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ManageContactsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddContactActivity"
+            android:exported="false" />
+        <activity
+            android:name=".InstructionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LiveLocationActivity"
+            android:exported="false" />
         <activity
             android:name=".MenuActivity"
             android:exported="false" />
@@ -25,5 +50,9 @@
             </intent-filter>
         </activity>
     </application>
+
+    <meta-data
+        android:name="com.google.android.geo.API_KEY"
+        android:value="@string/my_api_key" />
 
 </manifest>
