@@ -6,4 +6,7 @@
     <string name="click_the_button_for_emergency">Click the Button for Emergency</string>
     <string name="todo">TODO</string>
     <string name="Back">Back to the home Screen</string>
+    <string name="my_api_key">AIzaSyBPHNghT2-5mEVXXdL7cuOBV1aAp8OTbz0</string>
+    <string name="show_location">Show location</string>
+    <string name="type_address_here">Type address here</string>
 </resources>

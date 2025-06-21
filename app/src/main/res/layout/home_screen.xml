@@ -46,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@+id/logoCard" />
 
     <Button
-        android:id="@+id/btnLiveLocation"
+        android:id="@+id/liveLocationBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -64,16 +64,16 @@
         android:textAllCaps="false"
         android:textColor="#0D3B66"
         android:textSize="27sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnMenu"
-        app:layout_constraintEnd_toEndOf="@+id/btnMenu"
+        app:layout_constraintBottom_toTopOf="@+id/menuBtn"
+        app:layout_constraintEnd_toEndOf="@+id/menuBtn"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/btnMenu"
+        app:layout_constraintStart_toStartOf="@+id/menuBtn"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         tools:ignore="TextSizeCheck" />
 
     <Button
-        android:id="@+id/btnMenu"
+        android:id="@+id/menuBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

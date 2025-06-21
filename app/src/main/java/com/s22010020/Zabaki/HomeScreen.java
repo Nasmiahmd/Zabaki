@@ -1,5 +1,7 @@
 package com.s22010020.Zabaki;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -9,11 +11,13 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 public class HomeScreen extends AppCompatActivity {
-
+    private Button move;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +44,23 @@ public class HomeScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(HomeScreen.this, "Logo Button Clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        move=findViewById(R.id.liveLocationBtn);
+        move.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeScreen.this, LiveLocationActivity.class);
+                startActivity(intent);
+            }
+        });
+        move=findViewById(R.id.menuBtn);
+        move.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeScreen.this, MenuActivity.class);
+                startActivity(intent);
             }
         });
 

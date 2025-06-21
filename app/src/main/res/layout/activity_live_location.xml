@@ -5,27 +5,158 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LiveLocationActivity">
+    tools:context=".LiveLocationActivity"
+    android:background="#D2D2D2">
 
     <fragment
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="350dp"
-        android:layout_height="525dp"
+        android:layout_width="323dp"
+        android:layout_height="560dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.112" />
+        app:layout_constraintVertical_bias="0.195" />
 
-    <LinearLayout
-        android:id="@+id/inputLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent" />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/hospitalCardView"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#0D3B66"
+        app:cardCornerRadius="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/map"
+        app:layout_constraintVertical_bias="0.19">
 
+        <LinearLayout
+            android:layout_width="140dp"
+            android:layout_height="50dp"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="0dp"
+                android:fontFamily="@font/anton"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:typeface="normal"
+                android:text="Hospital" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/pharmacyCardView"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#0D3B66"
+        app:cardCornerRadius="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.82"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/map"
+        app:layout_constraintVertical_bias="0.19999999">
+
+        <LinearLayout
+            android:layout_width="140dp"
+            android:layout_height="50dp"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="0dp"
+                android:fontFamily="@font/anton"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:typeface="normal"
+                android:text="Pharmacy" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/liveLocationCardView"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#0D3B66"
+        app:cardCornerRadius="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hospitalCardView"
+        app:layout_constraintVertical_bias="0.33999997">
+
+        <LinearLayout
+            android:layout_width="140dp"
+            android:layout_height="50dp"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="0dp"
+                android:fontFamily="@font/anton"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:typeface="normal"
+                android:text="Live Location" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/policeLocationCardView"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#0D3B66"
+        app:cardCornerRadius="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.82"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pharmacyCardView"
+        app:layout_constraintVertical_bias="0.33999997">
+
+        <LinearLayout
+            android:layout_width="140dp"
+            android:layout_height="50dp"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="0dp"
+                android:fontFamily="@font/anton"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:typeface="normal"
+                android:text="Police Station" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/backBtn"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.041"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.018"
+        app:srcCompat="@drawable/arrow_small_left" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

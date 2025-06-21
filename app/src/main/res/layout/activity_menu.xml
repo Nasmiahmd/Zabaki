@@ -25,14 +25,17 @@
             android:layout_width="145dp"
             android:layout_height="135dp"
             android:padding="10dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables">
 
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="15dp"
-                app:srcCompat="@drawable/codesandbox" />
+                android:contentDescription="TODO"
+                app:srcCompat="@drawable/codesandbox"
+                tools:ignore="ContentDescription,HardcodedText" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -43,7 +46,8 @@
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:typeface="normal"
-                tools:text="Self-Defence" />
+                android:text="Self-Defence" />
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -80,7 +84,7 @@
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:typeface="normal"
-                tools:text="SOS Message" />
+                android:text="SOS Message" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -117,7 +121,7 @@
                 android:textColor="#FFFFFF"
                 android:textSize="19sp"
                 android:typeface="normal"
-                tools:text="Manage Contacts" />
+                android:text="Manage Contacts" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -155,7 +159,7 @@
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:typeface="normal"
-                tools:text="Add Contact" />
+                android:text="Add Contact" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -193,14 +197,15 @@
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:typeface="normal"
-                tools:text="Instructions" />
+                android:text="Instructions" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/backBtn"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:contentDescription="@string/todo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.041"
