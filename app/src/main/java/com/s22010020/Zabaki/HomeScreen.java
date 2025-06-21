@@ -29,12 +29,13 @@ public class HomeScreen extends AppCompatActivity {
             return insets;
         });
         ImageView logoButton = findViewById(R.id.logoButton);
-        ImageView instructions = findViewById(R.id.instructions);
+        ImageView instructionsImageView = findViewById(R.id.instructionsImageView);
 
-        instructions.setOnClickListener(new View.OnClickListener() {
+        instructionsImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(HomeScreen.this, "Instruction Button Clicked", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(HomeScreen.this, InstructionActivity.class);
+                startActivity(intent);
             }
         });
 

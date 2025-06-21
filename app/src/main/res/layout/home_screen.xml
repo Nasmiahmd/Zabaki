@@ -98,7 +98,7 @@
         tools:ignore="TextSizeCheck" />
 
     <ImageView
-        android:id="@+id/instructions"
+        android:id="@+id/instructionsImageView"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:contentDescription="@string/todo"
