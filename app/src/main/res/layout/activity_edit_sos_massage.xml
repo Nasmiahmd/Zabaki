@@ -21,5 +21,83 @@
         app:layout_constraintVertical_bias="0.018"
         app:srcCompat="@drawable/arrow_small_left" />
 
+    <TextView
+        android:id="@+id/sosNoteTextView"
+        android:layout_width="292dp"
+        android:layout_height="66dp"
+        android:fontFamily="sans-serif"
+        android:text="(This massage along with your current location sent your Emergency Contacts when you press the button)"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sosTextView"
+        app:layout_constraintVertical_bias="0.002" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="(50 Words Only)"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameEditText"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="260dp"
+        android:layout_height="58dp"
+        android:backgroundTint="#0D3B66"
+        android:fontFamily="@font/anton"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:padding="0dp"
+        android:text="Save"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14"
+        app:layout_constraintVertical_bias="0.124" />
+
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_width="335dp"
+        android:layout_height="60dp"
+        android:background="@drawable/rounded_corner_edit_text"
+        android:backgroundTint="#FAF0CA"
+        android:ems="10"
+        android:fontFamily="@font/anton"
+        android:inputType="text"
+        android:padding="15dp"
+        android:text="Help me!! I’m in Critical Situation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sosNoteTextView"
+        app:layout_constraintVertical_bias="0.063" />
+
+    <TextView
+        android:id="@+id/sosTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/anton"
+        android:text="SOS Message"
+        android:textColor="#000000"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.355" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

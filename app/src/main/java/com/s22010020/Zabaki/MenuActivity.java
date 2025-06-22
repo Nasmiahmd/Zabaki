@@ -32,6 +32,8 @@ public class MenuActivity extends AppCompatActivity {
         CardView instructionsCard = findViewById(R.id.instructionsCardView);
         ImageView backBtn = findViewById(R.id.backBtn);
 
+        backBtn.setOnClickListener(v -> finish());
+
         selfDefenceCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,13 +69,7 @@ public class MenuActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this, HomeScreen.class);
-                startActivity(intent);
-            }
-        });
+
     }
 
 }

@@ -1,6 +1,7 @@
 package com.s22010020.Zabaki;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +21,9 @@ public class SelfDefenceActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        ImageView backBtn = findViewById(R.id.backBtn);
+
+        backBtn.setOnClickListener(v -> finish());
     }
 }

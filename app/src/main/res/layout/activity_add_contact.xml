@@ -21,4 +21,97 @@
         app:layout_constraintVertical_bias="0.018"
         app:srcCompat="@drawable/arrow_small_left" />
 
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/anton"
+        android:text="Add Contact"
+        android:textColor="#000000"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.317" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="(You can add up to 5 contacts)"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView9"
+        app:layout_constraintVertical_bias="0.1" />
+
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_width="335dp"
+        android:layout_height="60dp"
+        android:background="@drawable/rounded_corner_edit_text"
+        android:backgroundTint="#FFFFFF"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="text"
+        android:padding="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10"
+        app:layout_constraintVertical_bias="0.175" />
+
+    <EditText
+        android:id="@+id/editTextPhone"
+        android:layout_width="335dp"
+        android:layout_height="60dp"
+        android:background="@drawable/rounded_corner_edit_text"
+        android:backgroundTint="#FFFFFF"
+        android:ems="10"
+        android:hint="Number"
+        android:inputType="phone"
+        android:padding="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameEditText"
+        app:layout_constraintVertical_bias="0.065" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="260dp"
+        android:layout_height="58dp"
+        android:backgroundTint="#0D3B66"
+        android:fontFamily="@font/anton"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:padding="0dp"
+        android:text="Save"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPhone"
+        app:layout_constraintVertical_bias="0.14" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Note: These Contacts are saved locally"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintVertical_bias="0.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

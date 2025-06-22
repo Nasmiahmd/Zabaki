@@ -26,12 +26,6 @@ public class InstructionActivity extends AppCompatActivity {
 
         ImageView backBtn = findViewById(R.id.backBtn);
 
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(InstructionActivity.this, MenuActivity.class);
-                startActivity(intent);
-            }
-        });
+        backBtn.setOnClickListener(v -> finish());
     }
 }
