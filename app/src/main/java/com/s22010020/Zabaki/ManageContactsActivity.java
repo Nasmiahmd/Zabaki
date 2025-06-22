@@ -2,6 +2,7 @@ package com.s22010020.Zabaki;
 
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -47,5 +48,15 @@ public class ManageContactsActivity extends AppCompatActivity {
 
     private List<Contact> getAllContacts() {
         return databaseHelper.getAllContacts(); // Fetch all contacts from the database
+    }
+
+    public void deleteContact(int id) {
+        boolean deleted = databaseHelper.deleteData(id);
+        if (deleted) {
+            Toast.makeText(this, "Contact deleted successfully.", Toast.LENGTH_SHORT).show();
+            getAllContacts(); // Reload the contact list in RecyclerView
+        } else {
+            Toast.makeText(this, "Failed to delete contact.", Toast.LENGTH_SHORT).show();
+        }
     }
 }

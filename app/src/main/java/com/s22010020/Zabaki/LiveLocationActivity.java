@@ -62,6 +62,8 @@ public class LiveLocationActivity extends AppCompatActivity implements OnMapRead
         backBtn.setOnClickListener(v -> finish());
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        fetchLocation();
+
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         if (mapFragment != null) {
@@ -186,5 +188,26 @@ public class LiveLocationActivity extends AppCompatActivity implements OnMapRead
 
     private void startLocationUpdates() {
 
+    }
+    private void fetchLocation() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+            return;
+        }
+
+        fusedLocationClient.getLastLocation().addOnSuccessListener(location -> {
+            if (location != null) {
+                Intent resultIntent = new Intent();
+                resultIntent.putExtra("latitude", location.getLatitude());
+                resultIntent.putExtra("longitude", location.getLongitude());
+                setResult(RESULT_OK, resultIntent);
+                finish(); // Return to the calling activity
+            } else {
+                Toast.makeText(this, "Unable to fetch location.", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnFailureListener(e -> {
+            Toast.makeText(this, "Failed to fetch location: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        });
     }
 }

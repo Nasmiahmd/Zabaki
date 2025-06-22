@@ -62,7 +62,7 @@ public class AddContactActivity extends AppCompatActivity {
                 nameEditText.setText("");
                 phoneEditText.setText("");
             } else {
-                Toast.makeText(this, "Failed to save contact", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Only 5 Contacts Allowed", Toast.LENGTH_SHORT).show();
             }
         });
     }

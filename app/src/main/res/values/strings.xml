@@ -9,4 +9,5 @@
     <string name="my_api_key">AIzaSyBPHNghT2-5mEVXXdL7cuOBV1aAp8OTbz0</string>
     <string name="show_location">Show location</string>
     <string name="type_address_here">Type address here</string>
+    <string name="default_sos_message">Help me!! I\'m in Critical Situation</string>
 </resources>

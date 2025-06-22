@@ -22,8 +22,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, NUMBER TEXT)");
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE_NAME +
+                " (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, NUMBER TEXT)");
     }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -33,6 +35,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public boolean insertData(String name, String number) {
         SQLiteDatabase db = this.getWritableDatabase();
+
+        // Check current number of contacts
+        Cursor cursor = db.rawQuery("SELECT COUNT(*) FROM " + TABLE_NAME, null);
+        int count = 0;
+        if (cursor.moveToFirst()) {
+            count = cursor.getInt(0);
+        }
+        cursor.close();
+
+        if (count >= 5) {
+            // Limit reached, do not insert more
+            return false;
+        }
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2, name);
         contentValues.put(COL_3, number);
