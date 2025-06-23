@@ -15,7 +15,6 @@ import androidx.core.view.WindowInsetsCompat;
 public class AddContactActivity extends AppCompatActivity {
 
     private DatabaseHelper databaseHelper;
-    private static final int MAX_CONTACTS = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +30,7 @@ public class AddContactActivity extends AppCompatActivity {
         // Initialize DatabaseHelper
         databaseHelper = new DatabaseHelper(this);
 
-        // Set up UI components
+        // Setup UI components
         ImageView backBtn = findViewById(R.id.backBtn);
         EditText nameEditText = findViewById(R.id.nameEditText);
         EditText phoneEditText = findViewById(R.id.editTextPhone);
@@ -45,7 +44,7 @@ public class AddContactActivity extends AppCompatActivity {
             String name = nameEditText.getText().toString().trim();
             String phone = phoneEditText.getText().toString().trim();
 
-            // Validate inputs
+            // Verify inputs
             if (name.isEmpty()) {
                 Toast.makeText(this, "Please enter a name", Toast.LENGTH_SHORT).show();
                 return;

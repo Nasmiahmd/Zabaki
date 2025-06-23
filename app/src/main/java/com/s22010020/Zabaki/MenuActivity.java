@@ -2,8 +2,6 @@ package com.s22010020.Zabaki;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
@@ -34,40 +32,25 @@ public class MenuActivity extends AppCompatActivity {
 
         backBtn.setOnClickListener(v -> finish());
 
-        selfDefenceCard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this, SelfDefenceActivity.class);
-                startActivity(intent);
-            }
+        selfDefenceCard.setOnClickListener(v -> {
+            Intent intent = new Intent(MenuActivity.this, SelfDefenceActivity.class);
+            startActivity(intent);
         });
-        editSosCard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this, EditSOSMassageActivity.class);
-                startActivity(intent);
-            }
+        editSosCard.setOnClickListener(v -> {
+            Intent intent = new Intent(MenuActivity.this, EditSOSMassageActivity.class);
+            startActivity(intent);
         });
-        manageContactsCard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this, ManageContactsActivity.class);
-                startActivity(intent);
-            }
+        manageContactsCard.setOnClickListener(v -> {
+            Intent intent = new Intent(MenuActivity.this, ManageContactsActivity.class);
+            startActivity(intent);
         });
-        addContactCard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this, AddContactActivity.class);
-                startActivity(intent);
-            }
+        addContactCard.setOnClickListener(v -> {
+            Intent intent = new Intent(MenuActivity.this, AddContactActivity.class);
+            startActivity(intent);
         });
-        instructionsCard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this, InstructionActivity.class);
-                startActivity(intent);
-            }
+        instructionsCard.setOnClickListener(v -> {
+            Intent intent = new Intent(MenuActivity.this, InstructionActivity.class);
+            startActivity(intent);
         });
 
     }

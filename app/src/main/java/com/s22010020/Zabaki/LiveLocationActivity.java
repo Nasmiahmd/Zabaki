@@ -1,14 +1,13 @@
 package com.s22010020.Zabaki;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Looper;
-import android.view.View;
+
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -16,16 +15,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationCallback;
-import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.location.LocationResult;
-import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -36,51 +29,62 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class LiveLocationActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap myMap;
-    private FusedLocationProviderClient fusedLocationClient;
     private Location currentLocation;
-    private LocationCallback locationCallback;
-
-    private CardView hospitalCardView, pharmacyCardView, liveLocationCardView, policeLocationCardView;
-
-
-    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
-
+    private LocationManager locationManager;
+    private static final int LOCATION_PERMISSION_REQUEST_CODE_LIVE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_live_location);
-        checkAndRequestPermissions();
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        ImageView backBtn = findViewById(R.id.backBtn);
 
+        ImageView backBtn = findViewById(R.id.backBtn);
         backBtn.setOnClickListener(v -> finish());
 
-        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-        fetchLocation();
+        // Initialize CardViews
+        CardView hospitalCardView = findViewById(R.id.hospitalCardView);
+        CardView pharmacyCardView = findViewById(R.id.pharmacyCardView);
+        CardView liveLocationCardView = findViewById(R.id.liveLocationCardView);
+        CardView policeLocationCardView = findViewById(R.id.policeLocationCardView);
 
+
+        hospitalCardView.setOnClickListener(v -> navigateToPlace("hospital"));
+        pharmacyCardView.setOnClickListener(v -> navigateToPlace("pharmacy"));
+        policeLocationCardView.setOnClickListener(v -> navigateToPlace("police station"));
+        liveLocationCardView.setOnClickListener(v -> getLiveLocation());
+
+        locationManager = new LocationManager(this, new LocationManager.LocationListener() {
+            @Override
+            public void onLocationReceived(Location location) {
+                currentLocation = location; // Update activity's currentLocation
+                if (myMap != null) {
+                    showLocationOnMap(location);
+                }
+            }
+
+            @Override
+            public void onLocationPermissionDenied() {
+                Toast.makeText(LiveLocationActivity.this, "Location permission required for live map.", Toast.LENGTH_SHORT).show();
+                // Request permissions if not already handled by checkAndRequestPermissions()
+                ActivityCompat.requestPermissions(LiveLocationActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE_LIVE);
+            }
+
+            @Override
+            public void onLocationFailed(String errorMessage) {
+                Toast.makeText(LiveLocationActivity.this, "Failed to get live location: " + errorMessage, Toast.LENGTH_SHORT).show();
+            }
+        });
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         if (mapFragment != null) {
             mapFragment.getMapAsync(this);
         }
-
-        // Initialize CardViews
-        hospitalCardView = findViewById(R.id.hospitalCardView);
-        pharmacyCardView = findViewById(R.id.pharmacyCardView);
-        liveLocationCardView = findViewById(R.id.liveLocationCardView);
-        policeLocationCardView = findViewById(R.id.policeLocationCardView);
-
-        // Set click listeners
-        hospitalCardView.setOnClickListener(v -> navigateToPlace("hospital"));
-        pharmacyCardView.setOnClickListener(v -> navigateToPlace("pharmacy"));
-        policeLocationCardView.setOnClickListener(v -> navigateToPlace("police station"));
-        liveLocationCardView.setOnClickListener(v -> getLiveLocation());
     }
 
     @Override
@@ -89,52 +93,62 @@ public class LiveLocationActivity extends AppCompatActivity implements OnMapRead
         myMap.getUiSettings().setZoomControlsEnabled(true);
         myMap.getUiSettings().setCompassEnabled(true);
 
-        // Set default location (OUSL Puttalam)
         LatLng ousl = new LatLng(8.02341519686238, 79.83395214243748);
         myMap.addMarker(new MarkerOptions().position(ousl).title("OUSL Puttalam"));
         myMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ousl, 15f));
-        getLiveLocation(); // Get the live location immediately after the map is ready
+
+        //Start live location updates if permissions are already granted
+        if (locationManager.checkLocationPermissions()) {
+            locationManager.startLocationUpdates();
+        } else {
+            //Request permissions if not granted
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE_LIVE);
+        }
     }
 
+    //getLiveLocation to simply start updates
     private void getLiveLocation() {
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
-                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
-            return;
+        if (locationManager.checkLocationPermissions()) {
+            locationManager.startLocationUpdates();
+        } else {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE_LIVE);
         }
+    }
 
-        LocationRequest locationRequest = LocationRequest.create()
-                .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
-                .setInterval(10000) // Update every 10 seconds
-                .setFastestInterval(5000); // Fastest update interval is 5 seconds
-
-        locationCallback = new LocationCallback() {
-            @Override
-            public void onLocationResult(LocationResult locationResult) {
-                if (locationResult == null) {
-                    return;
-                }
-                for (Location location : locationResult.getLocations()) {
-                    currentLocation = location;
-                    showLocationOnMap(location);
-                }
-            }
-        };
-
-        fusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, Looper.getMainLooper());
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Start location updates again if the activity resumes and permissions are granted
+        if (locationManager.checkLocationPermissions()) {
+            locationManager.startLocationUpdates();
+        }
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        if (fusedLocationClient != null && locationCallback != null) {
-            fusedLocationClient.removeLocationUpdates(locationCallback);
+        // Stop location updates when the activity is paused
+        locationManager.stopLocationUpdates();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE_LIVE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                locationManager.startLocationUpdates();
+            } else {
+                Toast.makeText(this, "Location permission is required for live location updates", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
     private void showLocationOnMap(Location location) {
+        if (myMap == null) {
+            return;
+        }
         LatLng currentLatLng = new LatLng(location.getLatitude(), location.getLongitude());
-        myMap.clear();
+        myMap.clear(); // Clear existing markers including the OUSL marker
         myMap.addMarker(new MarkerOptions().position(currentLatLng).title("You are here"));
         myMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 15f));
     }
@@ -145,7 +159,7 @@ public class LiveLocationActivity extends AppCompatActivity implements OnMapRead
             return;
         }
 
-        String uri = String.format("geo:%f,%f?q=%s", currentLocation.getLatitude(), currentLocation.getLongitude(), placeType);
+        @SuppressLint("DefaultLocale") String uri = String.format("geo:%f,%f?q=%s", currentLocation.getLatitude(), currentLocation.getLongitude(), placeType);
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
         intent.setPackage("com.google.android.apps.maps");
 
@@ -154,60 +168,5 @@ public class LiveLocationActivity extends AppCompatActivity implements OnMapRead
         } else {
             Toast.makeText(this, "Google Maps is not installed on your device.", Toast.LENGTH_SHORT).show();
         }
-    }
-
-    private void checkAndRequestPermissions() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ||
-                    ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_BACKGROUND_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-
-                ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_BACKGROUND_LOCATION},
-                        LOCATION_PERMISSION_REQUEST_CODE);
-            }
-        } else {
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-                        LOCATION_PERMISSION_REQUEST_CODE);
-            }
-        }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                startLocationUpdates();
-            } else {
-                Toast.makeText(this, "Location permission is required for live location updates", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
-
-    private void startLocationUpdates() {
-
-    }
-    private void fetchLocation() {
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
-                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
-            return;
-        }
-
-        fusedLocationClient.getLastLocation().addOnSuccessListener(location -> {
-            if (location != null) {
-                Intent resultIntent = new Intent();
-                resultIntent.putExtra("latitude", location.getLatitude());
-                resultIntent.putExtra("longitude", location.getLongitude());
-                setResult(RESULT_OK, resultIntent);
-                finish(); // Return to the calling activity
-            } else {
-                Toast.makeText(this, "Unable to fetch location.", Toast.LENGTH_SHORT).show();
-            }
-        }).addOnFailureListener(e -> {
-            Toast.makeText(this, "Failed to fetch location: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-        });
     }
 }

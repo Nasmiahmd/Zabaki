@@ -2,7 +2,6 @@ package com.s22010020.Zabaki;
 
 import android.os.Bundle;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,15 +11,11 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ManageContactsActivity extends AppCompatActivity {
 
     private DatabaseHelper databaseHelper;
-    private RecyclerView recyclerView;
-    private ContactAdapter contactAdapter;
-    private List<Contact> contactList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +28,13 @@ public class ManageContactsActivity extends AppCompatActivity {
             return insets;
         });
 
-        recyclerView = findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         databaseHelper = new DatabaseHelper(this);
-        contactList = getAllContacts();
+        List<Contact> contactList = getAllContacts();
 
-        contactAdapter = new ContactAdapter(this, contactList, databaseHelper);
+        ContactAdapter contactAdapter = new ContactAdapter(this, contactList, databaseHelper);
         recyclerView.setAdapter(contactAdapter);
 
         ImageView backBtn = findViewById(R.id.backBtn);
@@ -50,13 +45,4 @@ public class ManageContactsActivity extends AppCompatActivity {
         return databaseHelper.getAllContacts(); // Fetch all contacts from the database
     }
 
-    public void deleteContact(int id) {
-        boolean deleted = databaseHelper.deleteData(id);
-        if (deleted) {
-            Toast.makeText(this, "Contact deleted successfully.", Toast.LENGTH_SHORT).show();
-            getAllContacts(); // Reload the contact list in RecyclerView
-        } else {
-            Toast.makeText(this, "Failed to delete contact.", Toast.LENGTH_SHORT).show();
-        }
-    }
 }

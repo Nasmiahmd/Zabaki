@@ -48,7 +48,7 @@ public class EditSOSMassageActivity extends AppCompatActivity {
                 Toast.makeText(this, "SOS message cannot be empty", Toast.LENGTH_SHORT).show();
                 return;
             }
-            if (newMessage.length() > 250) {  // You can change limit if needed
+            if (newMessage.length() >= 50) {  // You can change limit if needed
                 Toast.makeText(this, "SOS message too long (max 250 characters)", Toast.LENGTH_SHORT).show();
                 return;
             }

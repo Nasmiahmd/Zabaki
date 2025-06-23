@@ -15,9 +15,9 @@ import java.util.List;
 
 public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactViewHolder> {
 
-    private Context context;
-    private List<Contact> contactList;
-    private DatabaseHelper databaseHelper;
+    private final Context context;
+    private final List<Contact> contactList;
+    private final DatabaseHelper databaseHelper;
 
     public ContactAdapter(Context context, List<Contact> contactList, DatabaseHelper databaseHelper) {
         this.context = context;
@@ -40,10 +40,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
         holder.numberTextView.setText(contact.getNumber());
 
         // Edit Button
-        holder.editButton.setOnClickListener(v -> {
-            // Show a dialog to edit contact and update database
-            Toast.makeText(context, "Edit feature is under development", Toast.LENGTH_SHORT).show();
-        });
+        holder.editButton.setOnClickListener(v -> Toast.makeText(context, "Edit feature is under development", Toast.LENGTH_SHORT).show());
 
         // Delete Button
         holder.deleteButton.setOnClickListener(v -> {
