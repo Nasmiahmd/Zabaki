@@ -23,6 +23,7 @@ public class MenuActivity extends AppCompatActivity {
             return insets;
         });
 
+
         CardView selfDefenceCard = findViewById(R.id.selfDefenceCardView);
         CardView editSosCard = findViewById(R.id.editSosMessageCardView);
         CardView manageContactsCard = findViewById(R.id.manageContactsCardView);

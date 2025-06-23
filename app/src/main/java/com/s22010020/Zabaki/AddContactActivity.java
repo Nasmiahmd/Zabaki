@@ -13,7 +13,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class AddContactActivity extends AppCompatActivity {
-
     private DatabaseHelper databaseHelper;
 
     @Override

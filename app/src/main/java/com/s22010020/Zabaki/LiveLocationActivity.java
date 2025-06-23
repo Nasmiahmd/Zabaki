@@ -27,7 +27,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class LiveLocationActivity extends AppCompatActivity implements OnMapReadyCallback {
-
     private GoogleMap myMap;
     private Location currentLocation;
     private LocationManager locationManager;

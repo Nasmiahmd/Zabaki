@@ -72,7 +72,6 @@ public class HomeScreenActivity extends AppCompatActivity implements SensorEvent
             startActivity(intent);
         });
 
-
         logoButton.setOnClickListener(v -> sendSOSMessage());
 
         // Request SMS permission if it's granted already then it won't request again

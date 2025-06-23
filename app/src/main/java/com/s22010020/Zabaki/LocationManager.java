@@ -18,7 +18,6 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.Priority;
 
 public class LocationManager {
-
     private final FusedLocationProviderClient fusedLocationClient;
     private LocationCallback locationCallback;
     private final Context context;
