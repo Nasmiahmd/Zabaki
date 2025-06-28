@@ -1,9 +1,11 @@
 package com.s22010020.Zabaki;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -36,7 +38,10 @@ public class AddContactActivity extends AppCompatActivity {
         Button saveButton = findViewById(R.id.button);
 
         // Back button functionality
-        backBtn.setOnClickListener(v -> finish());
+        backBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(AddContactActivity.this, MenuActivity.class);
+            startActivity(intent);
+        });
 
         // Save button functionality
         saveButton.setOnClickListener(v -> {
@@ -62,6 +67,12 @@ public class AddContactActivity extends AppCompatActivity {
             } else {
                 Toast.makeText(this, "Only 5 Contacts Allowed", Toast.LENGTH_SHORT).show();
             }
+        });
+
+        LinearLayout viewContactsBtn = findViewById(R.id.viewContactsBtn);
+        viewContactsBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(AddContactActivity.this, ManageContactsActivity.class);
+            startActivity(intent);
         });
     }
 }

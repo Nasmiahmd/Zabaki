@@ -1,7 +1,9 @@
 package com.s22010020.Zabaki;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,7 +39,17 @@ public class ManageContactsActivity extends AppCompatActivity {
         recyclerView.setAdapter(contactAdapter);
 
         ImageView backBtn = findViewById(R.id.backBtn);
-        backBtn.setOnClickListener(v -> finish());
+        // Back button functionality
+        backBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(ManageContactsActivity.this, MenuActivity.class);
+            startActivity(intent);
+        });
+
+        LinearLayout addContentBtn = findViewById(R.id.addContactBtn);
+        addContentBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(ManageContactsActivity.this, AddContactActivity.class);
+            startActivity(intent);
+        });
     }
 
     private List<Contact> getAllContacts() {

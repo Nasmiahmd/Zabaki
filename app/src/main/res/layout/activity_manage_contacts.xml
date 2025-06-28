@@ -46,4 +46,39 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 
+    <LinearLayout
+        android:id="@+id/addContactBtn"
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        android:background="@drawable/rounded_corner_add_contact_btn"
+        android:clickable="true"
+        android:orientation="horizontal"
+        android:gravity="center"
+
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.861"
+        app:layout_constraintStart_toStartOf="@+id/recyclerView"
+        app:layout_constraintTop_toTopOf="@+id/recyclerView"
+        app:layout_constraintVertical_bias="0.967">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/anton"
+            android:text="Add Contact"
+            android:paddingRight="5dp"
+            android:paddingBottom="3dp"
+            android:textColor="#000000"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/add_plus"
+            />
+
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
