@@ -27,7 +27,7 @@
             android:contentDescription="@string/zabaki_logo_button"
             android:focusable="true"
             android:scaleType="centerCrop"
-            android:src="@drawable/sos_button"
+            android:src="@raw/sos_button"
             tools:ignore="ImageContrastCheck,RedundantDescriptionCheck" />
 
     </androidx.cardview.widget.CardView>
@@ -37,9 +37,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:elevation="8dp"
         android:fontFamily="sans-serif"
         android:text="@string/click_the_button_for_emergency"
-        android:textColor="#7A8D95"
+        android:textColor="#455A64"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/logoCard"
         app:layout_constraintStart_toStartOf="@+id/logoCard"
@@ -55,6 +56,7 @@
         android:height="53dp"
         android:backgroundTint="#FAF0CA"
         android:fontFamily="@font/anton"
+        android:elevation="8dp"
         android:gravity="center"
         android:textAlignment="center"
         android:includeFontPadding="false"
@@ -79,6 +81,7 @@
         android:height="53dp"
         android:backgroundTint="#FAF0CA"
         android:fontFamily="@font/anton"
+        android:elevation="8dp"
         android:gravity="center"
         android:textAlignment="center"
         android:includeFontPadding="false"
@@ -99,6 +102,7 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:contentDescription="@string/todo"
+        android:elevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.956"
@@ -114,12 +118,15 @@
         android:layout_height="58dp"
         android:layout_centerInParent="true"
         android:background="@null"
+        android:contentDescription="@string/todo"
+        android:elevation="8dp"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_play"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.229" />
+        app:layout_constraintVertical_bias="0.229"
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

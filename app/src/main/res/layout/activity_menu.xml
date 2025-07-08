@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:background="@drawable/bg_img1"
+    android:background="@raw/bg_img1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MenuActivity">
@@ -15,6 +15,7 @@
         android:layout_height="135dp"
         android:backgroundTint="#0D3B66"
         app:cardCornerRadius="25dp"
+        app:cardElevation="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,10 +44,11 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="0dp"
                 android:fontFamily="@font/anton"
+                android:text="@string/self_defence"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:typeface="normal"
-                android:text="Self-Defence" />
+                tools:ignore="TextSizeCheck" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -57,6 +59,7 @@
         android:layout_height="135dp"
         android:backgroundTint="#0D3B66"
         app:cardCornerRadius="25dp"
+        app:cardElevation="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.86"
@@ -66,14 +69,17 @@
         <LinearLayout
             android:layout_width="145dp"
             android:layout_height="135dp"
-            android:orientation="vertical">
+            android:contentDescription="@string/todo"
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables">
 
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="15dp"
-                app:srcCompat="@drawable/edit" />
+                app:srcCompat="@drawable/edit"
+                android:contentDescription="@string/todo"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -81,10 +87,11 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="0dp"
                 android:fontFamily="@font/anton"
+                android:text="@string/sos_message"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:typeface="normal"
-                android:text="SOS Message" />
+                tools:ignore="TextSizeCheck" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -94,6 +101,7 @@
         android:layout_height="135dp"
         android:backgroundTint="#0D3B66"
         app:cardCornerRadius="25dp"
+        app:cardElevation="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.14"
@@ -103,14 +111,16 @@
         <LinearLayout
             android:layout_width="145dp"
             android:layout_height="135dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables">
 
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="15dp"
-                app:srcCompat="@drawable/users" />
+                app:srcCompat="@drawable/users"
+                android:contentDescription="@string/todo"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -118,10 +128,11 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="0dp"
                 android:fontFamily="@font/anton"
+                android:text="@string/manage_contacts"
                 android:textColor="#FFFFFF"
                 android:textSize="19sp"
                 android:typeface="normal"
-                android:text="Manage Contacts" />
+                tools:ignore="TextSizeCheck" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -131,6 +142,7 @@
         android:layout_height="135dp"
         android:backgroundTint="#0D3B66"
         app:cardCornerRadius="25dp"
+        app:cardElevation="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.86"
@@ -141,14 +153,16 @@
         <LinearLayout
             android:layout_width="145dp"
             android:layout_height="135dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables">
 
             <ImageView
                 android:layout_width="65dp"
                 android:layout_height="65dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="15dp"
-                app:srcCompat="@drawable/plus_circle" />
+                app:srcCompat="@drawable/plus_circle"
+                android:contentDescription="@string/todo"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -156,10 +170,11 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="0dp"
                 android:fontFamily="@font/anton"
+                android:text="@string/add_contact"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:typeface="normal"
-                android:text="Add Contact" />
+                tools:ignore="TextSizeCheck" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -169,6 +184,7 @@
         android:layout_height="135dp"
         android:backgroundTint="#0D3B66"
         app:cardCornerRadius="25dp"
+        app:cardElevation="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.14"
@@ -179,14 +195,16 @@
         <LinearLayout
             android:layout_width="145dp"
             android:layout_height="135dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables">
 
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="15dp"
-                app:srcCompat="@drawable/exclamation" />
+                app:srcCompat="@drawable/exclamation"
+                android:contentDescription="@string/todo"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -194,10 +212,11 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="0dp"
                 android:fontFamily="@font/anton"
+                android:text="@string/instructions_1"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:typeface="normal"
-                android:text="Instructions" />
+                tools:ignore="TextSizeCheck" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

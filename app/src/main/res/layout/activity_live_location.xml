@@ -8,16 +8,17 @@
     tools:context=".LiveLocationActivity"
     android:background="#D2D2D2">
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="323dp"
         android:layout_height="560dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.465"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.195" />
+        app:layout_constraintTop_toBottomOf="@+id/backBtn"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/hospitalCardView"
@@ -44,10 +45,11 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="0dp"
                 android:fontFamily="@font/anton"
+                android:text="@string/hospital"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:typeface="normal"
-                android:text="Hospital" />
+                tools:ignore="TextSizeCheck" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -76,10 +78,11 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="0dp"
                 android:fontFamily="@font/anton"
+                android:text="@string/pharmacy"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:typeface="normal"
-                android:text="Pharmacy" />
+                tools:ignore="TextSizeCheck" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -108,10 +111,11 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="0dp"
                 android:fontFamily="@font/anton"
+                android:text="@string/live_location"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:typeface="normal"
-                android:text="Live Location" />
+                tools:ignore="TextSizeCheck" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -120,6 +124,7 @@
         android:layout_width="140dp"
         android:layout_height="50dp"
         android:backgroundTint="#0D3B66"
+        android:contentDescription="@string/todo"
         app:cardCornerRadius="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -139,11 +144,13 @@
                 android:layout_height="30dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="0dp"
+                android:contentDescription="@string/todo"
                 android:fontFamily="@font/anton"
+                android:text="@string/police_station"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:typeface="normal"
-                android:text="Police Station" />
+                tools:ignore="TextSizeCheck" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -151,6 +158,7 @@
         android:id="@+id/backBtn"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:contentDescription="@string/todo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.041"
