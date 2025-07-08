@@ -11,12 +11,13 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.SEND_SMS" />
 
     <queries>
         <intent>
             <action android:name="android.intent.action.SENDTO" />
+
             <data android:scheme="smsto" />
         </intent>
     </queries>
@@ -31,6 +32,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Zabaki"
         tools:targetApi="31">
+        <activity
+            android:name=".EditContactActivity"
+            android:exported="false" />
         <activity
             android:name=".SelfDefenceActivity"
             android:exported="false" />
@@ -64,7 +68,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/my_api_key"/>
+            android:value="@string/my_api_key" />
     </application>
 
 </manifest>

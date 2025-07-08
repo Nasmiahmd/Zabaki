@@ -12,7 +12,7 @@ import java.util.List;
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "Contacts.db";
     private static final String TABLE_NAME = "contact_table";
-
+    private static final String COL_1 = "ID";
     private static final String COL_2 = "NAME";
     private static final String COL_3 = "NUMBER";
 
@@ -70,6 +70,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         cursor.close();
         return contacts;
+    }
+
+    public boolean updateData(int id, String name, String number) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_1, id); // Ensure ID is included for update
+        contentValues.put(COL_2, name);
+        contentValues.put(COL_3, number);
+        // Update the row where ID matches
+        int result = db.update(TABLE_NAME, contentValues, "ID = ?", new String[]{String.valueOf(id)});
+        return result > 0; // Returns true if at least one row was updated
     }
 
     public boolean deleteData(int id) {

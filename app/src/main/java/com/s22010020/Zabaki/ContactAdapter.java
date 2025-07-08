@@ -1,6 +1,8 @@
 package com.s22010020.Zabaki;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +21,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
     private final List<Contact> contactList;
     private final DatabaseHelper databaseHelper;
 
+    private static final int EDIT_CONTACT_REQUEST_CODE = 1;
     public ContactAdapter(Context context, List<Contact> contactList, DatabaseHelper databaseHelper) {
         this.context = context;
         this.contactList = contactList;
@@ -40,7 +43,22 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
         holder.numberTextView.setText(contact.getNumber());
 
         // Edit Button
-        holder.editButton.setOnClickListener(v -> Toast.makeText(context, "Edit feature is under development", Toast.LENGTH_SHORT).show());
+        holder.editButton.setOnClickListener(v -> {
+            // Start EditContactActivity to edit the selected contact
+            Intent intent = new Intent(context, EditContactActivity.class);
+            intent.putExtra("contact_id", contact.getId());
+            intent.putExtra("contact_name", contact.getName());
+            intent.putExtra("contact_number", contact.getNumber());
+
+            // Use startActivityForResult if context is an Activity
+            if (context instanceof Activity) {
+                ((Activity) context).startActivityForResult(intent, EDIT_CONTACT_REQUEST_CODE);
+            } else {
+                // Fallback if context is not an Activity (e.g., Application context)
+                // This scenario should ideally not happen for launching activities from an adapter
+                Toast.makeText(context, "Cannot open edit screen from this context.", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         // Delete Button
         holder.deleteButton.setOnClickListener(v -> {
