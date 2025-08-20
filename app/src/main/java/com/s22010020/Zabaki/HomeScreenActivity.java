@@ -105,7 +105,7 @@ public class HomeScreenActivity extends AppCompatActivity implements SensorEvent
 
         // Initialize Play/Pause button
         playPauseButton = findViewById(R.id.playPauseButton);
-        playPauseButton.setImageResource(R.drawable.ic_play); // Initial icon is "Play"
+        playPauseButton.setImageResource(R.drawable.ic_play); // Initial icon "Play"
 
         playPauseButton.setOnClickListener(v -> {
             if (isPlaying) {
@@ -131,14 +131,14 @@ public class HomeScreenActivity extends AppCompatActivity implements SensorEvent
 
             @Override
             public void onLocationPermissionDenied() {
-                Toast.makeText(HomeScreenActivity.this, "Location permission required for SOS.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(HomeScreenActivity.this, "Location permission required for Track Your Current Location.", Toast.LENGTH_SHORT).show();
                 // Request permission if not already done by checkAndRequestPermissions
                 ActivityCompat.requestPermissions(HomeScreenActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE_SOS);
             }
 
             @Override
             public void onLocationFailed(String errorMessage) {
-                Toast.makeText(HomeScreenActivity.this, "Failed to get location for SOS: " + errorMessage, Toast.LENGTH_SHORT).show();
+                Toast.makeText(HomeScreenActivity.this, "Failed to get live location : " + errorMessage, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -252,7 +252,7 @@ public class HomeScreenActivity extends AppCompatActivity implements SensorEvent
         // Check location permissions first
         if (locationManager.checkLocationPermissions()) {
             // Permissions are granted, get the last known location
-            Toast.makeText(this, "Fetching location for SOS...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Fetching location...", Toast.LENGTH_SHORT).show();
             locationManager.getLastKnownLocation();
         } else {
             // Request location permissions (handled by the LocationListener callback)
@@ -309,7 +309,7 @@ public class HomeScreenActivity extends AppCompatActivity implements SensorEvent
             }
         } else if (requestCode == LOCATION_PERMISSION_REQUEST_CODE_SOS) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(this, "Location permission granted. Retrying SOS...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Location permission granted. Retrying...", Toast.LENGTH_SHORT).show();
                 // If permission granted, retry sending SOS message
                 sendSOSMessage();
             } else {
